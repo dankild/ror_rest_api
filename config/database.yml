@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: rest_api_guide_production
-  username: rest_api_guide
-  password: <%= ENV['REST_API_GUIDE_DATABASE_PASSWORD'] %>
+  #username: rest_api_guide
+  #password: <%= ENV['REST_API_GUIDE_DATABASE_PASSWORD'] %>

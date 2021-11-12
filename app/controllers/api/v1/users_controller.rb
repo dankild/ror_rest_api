@@ -8,6 +8,7 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /user/:id
     def show
+        find_user
         render json: @user
     end
 
@@ -23,6 +24,7 @@ class Api::V1::UsersController < ApplicationController
 
     #PUT /users/:id
     def update
+        find_user
         if @user
             @user.update(user_params)
             render json: {message: 'User successfully updated.'}, status: 200
@@ -33,6 +35,7 @@ class Api::V1::UsersController < ApplicationController
 
     #DELETE /users/:id
     def destroy
+        find_user
         if @user
             @user.destroy
             render json: {message: 'User successfully deleted.'}, status: 200

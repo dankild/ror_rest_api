@@ -1,14 +1,18 @@
 class Api::V1::FactsController < ApplicationController
 
+    # GET /facts
     def index
         @facts = Fact.all
         render json: @facts
     end
 
+    # GET /fact/:id
     def show
+        find_fact
         render json: @facts
     end
 
+    #POST /facts
     def create
         @fact = Fact.new(fact_params)
         if @fact.save
@@ -18,7 +22,9 @@ class Api::V1::FactsController < ApplicationController
         end
     end
 
+    #PUT /facts/:id
     def update
+        find_fact
         if @fact
             @fact.update(fact_params)
             render json: {message: 'Fact successfully updated.'}, status: 200
@@ -27,7 +33,9 @@ class Api::V1::FactsController < ApplicationController
         end
     end
 
+    #DELETE /facts/:id
     def destroy
+        find_fact
         if @fact
             @fact.destroy
             render json: {message: 'Fact successfully deleted.'}, status: 200

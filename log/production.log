@@ -1,0 +1,134 @@
+I, [2021-11-12T12:07:47.612633 #9378]  INFO -- : [b27c6061-9049-49d2-9907-7a8a91a2d4f4] Started GET "/" for 127.0.0.1 at 2021-11-12 12:07:47 +0200
+F, [2021-11-12T12:07:47.613267 #9378] FATAL -- : [b27c6061-9049-49d2-9907-7a8a91a2d4f4]   
+[b27c6061-9049-49d2-9907-7a8a91a2d4f4] ActionController::RoutingError (No route matches [GET] "/"):
+[b27c6061-9049-49d2-9907-7a8a91a2d4f4]   
+I, [2021-11-12T12:07:56.568491 #9378]  INFO -- : [c0f159d2-2bce-473f-8bb9-4b8d671932f8] Started GET "/" for 127.0.0.1 at 2021-11-12 12:07:56 +0200
+F, [2021-11-12T12:07:56.569579 #9378] FATAL -- : [c0f159d2-2bce-473f-8bb9-4b8d671932f8]   
+[c0f159d2-2bce-473f-8bb9-4b8d671932f8] ActionController::RoutingError (No route matches [GET] "/"):
+[c0f159d2-2bce-473f-8bb9-4b8d671932f8]   
+I, [2021-11-12T12:08:02.226976 #9378]  INFO -- : [4be0aefd-75d2-423f-8e56-5d9cc9777d7c] Started GET "/" for 127.0.0.1 at 2021-11-12 12:08:02 +0200
+F, [2021-11-12T12:08:02.227221 #9378] FATAL -- : [4be0aefd-75d2-423f-8e56-5d9cc9777d7c]   
+[4be0aefd-75d2-423f-8e56-5d9cc9777d7c] ActionController::RoutingError (No route matches [GET] "/"):
+[4be0aefd-75d2-423f-8e56-5d9cc9777d7c]   
+Started GET "/" for 127.0.0.1 at 2021-11-12 12:45:22 +0200
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  Peer authentication failed for user "rest_api_guide"
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:92:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-11-12 12:45:22 +0200
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  Peer authentication failed for user "rest_api_guide"
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:92:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+I, [2021-11-12T12:46:10.195293 #18224]  INFO -- : [c16eaea4-55d9-4705-a1a4-25aa0bf22326] Started GET "/" for 127.0.0.1 at 2021-11-12 12:46:10 +0200
+F, [2021-11-12T12:46:10.196920 #18224] FATAL -- : [c16eaea4-55d9-4705-a1a4-25aa0bf22326]   
+[c16eaea4-55d9-4705-a1a4-25aa0bf22326] ActionController::RoutingError (No route matches [GET] "/"):
+[c16eaea4-55d9-4705-a1a4-25aa0bf22326]   
+I, [2021-11-12T12:46:56.417650 #18380]  INFO -- : [838c16a1-0a4e-4032-932b-b19961d16370] Started GET "/" for 127.0.0.1 at 2021-11-12 12:46:56 +0200
+F, [2021-11-12T12:46:56.418072 #18380] FATAL -- : [838c16a1-0a4e-4032-932b-b19961d16370]   
+[838c16a1-0a4e-4032-932b-b19961d16370] ActionController::RoutingError (No route matches [GET] "/"):
+[838c16a1-0a4e-4032-932b-b19961d16370]   
+I, [2021-11-12T12:46:57.129198 #18380]  INFO -- : [ad2065b4-df60-401a-9c74-e6a7ed33710b] Started GET "/" for 127.0.0.1 at 2021-11-12 12:46:57 +0200
+F, [2021-11-12T12:46:57.129725 #18380] FATAL -- : [ad2065b4-df60-401a-9c74-e6a7ed33710b]   
+[ad2065b4-df60-401a-9c74-e6a7ed33710b] ActionController::RoutingError (No route matches [GET] "/"):
+[ad2065b4-df60-401a-9c74-e6a7ed33710b]   
+I, [2021-11-12T12:46:57.803961 #18380]  INFO -- : [58d041ad-7639-4c81-9341-f7fe0961154b] Started GET "/" for 127.0.0.1 at 2021-11-12 12:46:57 +0200
+F, [2021-11-12T12:46:57.804726 #18380] FATAL -- : [58d041ad-7639-4c81-9341-f7fe0961154b]   
+[58d041ad-7639-4c81-9341-f7fe0961154b] ActionController::RoutingError (No route matches [GET] "/"):
+[58d041ad-7639-4c81-9341-f7fe0961154b]   
+I, [2021-11-12T12:47:29.786959 #18565]  INFO -- : [0bacce7b-10c8-40ae-92af-36e6a6bb36c0] Started GET "/" for 127.0.0.1 at 2021-11-12 12:47:29 +0200
+F, [2021-11-12T12:47:29.787285 #18565] FATAL -- : [0bacce7b-10c8-40ae-92af-36e6a6bb36c0]   
+[0bacce7b-10c8-40ae-92af-36e6a6bb36c0] ActionController::RoutingError (No route matches [GET] "/"):
+[0bacce7b-10c8-40ae-92af-36e6a6bb36c0]   

@@ -1,0 +1,531 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(453782794748940720)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(453782794748940720)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "rest_api_guide_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "rest_api_guide_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "facts" CASCADE[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "facts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "fact" character varying, "likes" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_facts_on_user_id" ON "facts" ("user_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "facts" ADD CONSTRAINT "fk_rails_30df9dc7e4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0607e41b5af09a8695a11fcacd8f9003e43b5e95"], ["created_at", "2021-11-09 13:09:44.963163"], ["updated_at", "2021-11-09 13:09:44.963163"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "facts" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "facts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "fact" character varying, "likes" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_facts_on_user_id" ON "facts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "facts" ADD CONSTRAINT "fk_rails_30df9dc7e4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211109122501)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211109122452);
+
+[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-11-09 13:09:45.026748"], ["updated_at", "2021-11-09 13:09:45.026748"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-11-09 13:09:45.032723"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0607e41b5af09a8695a11fcacd8f9003e43b5e95"], ["created_at", "2021-11-09 13:09:45.037852"], ["updated_at", "2021-11-09 13:09:45.037852"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:35:04 +0200
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  role "katsu" is not permitted to log in
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2021-11-09 15:35:04 +0200
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  role "katsu" is not permitted to log in
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:35:27 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+Started GET "/favicon.ico" for ::1 at 2021-11-09 15:35:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:37:05 +0200
+  
+LocalJumpError (no block given (yield)):
+  
+config/routes.rb:6:in `block (4 levels) in <main>'
+config/routes.rb:5:in `block (3 levels) in <main>'
+config/routes.rb:4:in `block (2 levels) in <main>'
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:37:25 +0200
+  
+SyntaxError (/home/katsu/Documents/rest-api-guide/app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:37:39 +0200
+  
+SyntaxError (/home/katsu/Documents/rest-api-guide/app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:37:55 +0200
+  
+SyntaxError (/home/katsu/Documents/rest-api-guide/app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:39:00 +0200
+  
+SyntaxError (/home/katsu/Documents/rest-api-guide/app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:39:34 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1716)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:46:16 +0200
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  role "katsu" is not permitted to log in
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/users" for ::1 at 2021-11-09 15:48:25 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 1662)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-12 11:46:11 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.2ms | Allocations: 526)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4399)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-11-12 11:46:12 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-11-12 11:46:30 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 1.9ms | Allocations: 1689)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "katsu"], ["password", "000000"], ["created_at", "2021-11-12 09:47:29.072437"], ["updated_at", "2021-11-12 09:47:29.072437"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFact Create (1.8ms)[0m  [1m[32mINSERT INTO "facts" ("user_id", "fact", "likes", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["fact", "Сгорела у меня лампа аквариумная. В ней стояли ртутные лампы дневного света, что мне изначально не нравилось. Как временное решение, я взял отражатель из старой лампы и просто обклеил им светодиодную лампу в стандартном патроне. Новая лампа 2700К в отличии от старой 6500, не знаю, насколько это можно рыбам, но мне более тёплые лампы куда больше нравятся. Ну и при расходе 8вт он светит ярче чем 2 ртутные по 6вт."], ["likes", 1], ["created_at", "2021-11-12 09:49:39.244710"], ["updated_at", "2021-11-12 09:49:39.244710"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-11-12 11:49:51 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 49ms (Views: 36.2ms | ActiveRecord: 2.5ms | Allocations: 7019)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-11-12 11:50:20 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.6ms | Allocations: 734)
+
+
+Started GET "/api/v1/facts" for 127.0.0.1 at 2021-11-12 11:50:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/facts"):
+  
+Started GET "/api/v1/users/1/facts" for 127.0.0.1 at 2021-11-12 11:51:10 +0200
+  
+SyntaxError (/home/katsu/Documents/rest-api-guide/app/controllers/api/v1/facts_controller.rb:47: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/facts_controller.rb:47: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/facts_controller.rb:47: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users/1/facts" for 127.0.0.1 at 2021-11-12 11:51:24 +0200
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.3ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 2.0ms | Allocations: 5014)
+
+
+Started GET "/api/v1/users/1/facts" for 127.0.0.1 at 2021-11-12 11:52:33 +0200
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.1ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 1.8ms | Allocations: 4590)
+
+
+Started GET "/api/v1/facts" for ::1 at 2021-11-12 11:52:41 +0200
+Processing by Api::V1::FactsController#index as HTML
+  [1m[36mFact Load (0.1ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 726)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-11-12 11:52:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2021-11-12 12:05:39 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 421)
+Completed 200 OK in 42ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 3277)
+
+
+Started GET "/" for ::1 at 2021-11-12 12:08:36 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.7ms | Allocations: 421)
+Completed 200 OK in 39ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 3277)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-12 12:08:39 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 2.6ms | Allocations: 4928)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-12 12:39:12 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 3.4ms | Allocations: 7000)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-12 12:39:32 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 37ms (Views: 30.8ms | ActiveRecord: 3.2ms | Allocations: 7000)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-11-12 12:39:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2021-11-12 13:36:41 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/katsu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.4ms | Allocations: 421)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 3277)
+
+
+Started GET "/api/v1/user/1" for ::1 at 2021-11-12 13:36:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/1"):
+  
+Started GET "/api/v1/users/1" for ::1 at 2021-11-12 13:36:56 +0200
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-12 13:37:10 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 21ms (Views: 8.4ms | ActiveRecord: 4.0ms | Allocations: 5874)
+
+
+Started GET "/api/v1/users/1" for ::1 at 2021-11-12 13:37:47 +0200
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `show'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 4555)
+
+
+Started GET "/api/v1/users/1" for ::1 at 2021-11-12 13:38:35 +0200
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:52:in `find_user'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3924)
+
+
+Started GET "/api/v1/facts/1" for ::1 at 2021-11-12 13:39:08 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFact Load (0.2ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:49:in `find_fact'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 4958)
+
+
+Started GET "/api/v1/facts" for ::1 at 2021-11-12 13:39:16 +0200
+Processing by Api::V1::FactsController#index as HTML
+  [1m[36mFact Load (0.7ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.7ms | Allocations: 786)
+
+
+Started GET "/api/v1/facts/1" for ::1 at 2021-11-12 13:39:29 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFact Load (0.7ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:49:in `find_fact'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 498)
+
+
+Started GET "/api/v1/facts/1" for ::1 at 2021-11-12 13:40:18 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFact Load (0.2ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:54:in `find_fact'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 4468)
+
+
+Started GET "/api/v1/fact/1" for ::1 at 2021-11-12 13:40:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/fact/1"):
+  
+Started GET "/api/v1/user/1" for ::1 at 2021-11-12 13:41:01 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/1"):
+  
+Started GET "/api/v1/users/1" for ::1 at 2021-11-12 13:41:04 +0200
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:54:in `find_user'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 4.2ms | Allocations: 3927)
+
+
+Started GET "/api/v1/facts/1" for ::1 at 2021-11-12 13:41:12 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFact Load (0.6ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:54:in `find_fact'
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 8.7ms | Allocations: 4172)
+
+
+Started GET "/api/v1/facts/2" for ::1 at 2021-11-12 13:41:31 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFact Load (0.5ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:54:in `find_fact'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 545)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Fact with 'id'=2):
+  
+app/controllers/api/v1/facts_controller.rb:54:in `find_fact'
+app/controllers/api/v1/facts_controller.rb:11:in `show'
+Started GET "/api/v1/facts/1" for ::1 at 2021-11-12 13:42:18 +0200
+Processing by Api::V1::FactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFact Load (0.5ms)[0m  [1m[34mSELECT "facts".* FROM "facts" WHERE "facts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/facts_controller.rb:54:in `find_fact'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 608)
+
+
+Started GET "/api/v1/facts" for ::1 at 2021-11-12 13:42:43 +0200
+Processing by Api::V1::FactsController#index as HTML
+  [1m[36mFact Load (0.6ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.6ms | Allocations: 801)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-11-12 13:42:59 +0200
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 718)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2021-11-12 13:43:03 +0200
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.5ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 714)
+
+

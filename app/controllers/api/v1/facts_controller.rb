@@ -6,10 +6,10 @@ class Api::V1::FactsController < ApplicationController
         render json: @facts
     end
 
-    # GET /fact/:id
+    # GET /facts/:id
     def show
         find_fact
-        render json: @facts
+        render json: @fact
     end
 
     #POST /facts
@@ -18,7 +18,7 @@ class Api::V1::FactsController < ApplicationController
         if @fact.save
             render json: @fact
         else
-            render error: {error: 'Unable to create fact.'}, status: 400
+            render error: {error: 'Unable to create task.'}, status: 400
         end
     end
 
@@ -27,9 +27,9 @@ class Api::V1::FactsController < ApplicationController
         find_fact
         if @fact
             @fact.update(fact_params)
-            render json: {message: 'Fact successfully updated.'}, status: 200
+            render json: {message: 'Tsak successfully updated.'}, status: 200
         else
-            render json: {error: 'Unable to update fact.'}, status: 400
+            render json: {error: 'Unable to update task.'}, status: 400
         end
     end
 
@@ -38,9 +38,9 @@ class Api::V1::FactsController < ApplicationController
         find_fact
         if @fact
             @fact.destroy
-            render json: {message: 'Fact successfully deleted.'}, status: 200
+            render json: {message: 'Task successfully deleted.'}, status: 200
         else
-            render json: {error: 'Unable to delete fact.'}, status: 400
+            render json: {error: 'Unable to delete task.'}, status: 400
         end
     end
 

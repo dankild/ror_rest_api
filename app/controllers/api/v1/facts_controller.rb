@@ -27,7 +27,7 @@ class Api::V1::FactsController < ApplicationController
         find_fact
         if @fact
             @fact.update(fact_params)
-            render json: {message: 'Tsak successfully updated.'}, status: 200
+            render json: {message: 'Task successfully updated.'}, status: 200
         else
             render json: {error: 'Unable to update task.'}, status: 400
         end
@@ -47,7 +47,7 @@ class Api::V1::FactsController < ApplicationController
     private
 
     def fact_params
-        params.require(:fact).permit(:fact, :likes, :user_id)
+        params.require(:fact).permit(:fact, :user_id)
     end
 
     def find_fact

@@ -47,7 +47,7 @@ class Api::V1::FactsController < ApplicationController
     private
 
     def fact_params
-        params.require(:fact).permit(:fact, :user_id)
+        params.require(:fact).permit(:fact, :user_id, :likes)
     end
 
     def find_fact
